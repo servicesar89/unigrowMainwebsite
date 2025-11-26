@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="https://unigrowtalent.com/">
     <title>Your Global Gateway to Remote & On-Site Careers | Unigrow Talent</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <meta name="description"
         content="Explore remote work, part time jobs for students and online job opportunities. Get career support and job placements with Unigrow Talent.">
 
@@ -48,7 +49,30 @@
         .animate-marquee {
             animation: marquee 20s linear infinite;
         }
+
+
+
+        /* Floating QR Code Box */
+        #qr-floating-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            width: 110px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            /* always on top */
+        }
+
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
+
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
@@ -99,104 +123,135 @@
 
             </header>
             <div class="bg-white shadow-md">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between">
-    
-    <!-- Logo -->
-    <div class="flex items-center gap-2">
-      <img src="/assets/unigrowLogo.svg" alt="Company Logo" class="h-16 w-auto cursor-pointer"
-        onclick="window.location.href='/'">
-    </div>
+                <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between">
 
-    <!-- Desktop Menu -->
-    <div class="flex items-center justify-center">
-      <ul class="hidden md:flex ml-4 gap-6 font-medium items-center">
-        <li onclick="window.location.href='/'" class="cursor-pointer active text-blue-600">Home</li>
-        <li onclick="window.location.href='/aboutUs'" class="cursor-pointer hover:text-blue-600 transition-colors">AboutUs</li>
-        <li onclick="window.location.href='/services'" class="cursor-pointer hover:text-blue-600 transition-colors">Services</li>
-        <li onclick="window.location.href='/career'" class="cursor-pointer hover:text-blue-600 transition-colors">Careers</li>
-        <li onclick="window.location.href='/blogs'" class="cursor-pointer hover:text-blue-600 transition-colors">Blogs</li>
-        <li>
-          <a class="cursor-pointer hover:text-blue-600 transition-colors" href="/contactUs">Contact Us</a>
-        </li>
-      </ul>
-    </div>
+                    <!-- Logo -->
+                    <div class="flex items-center gap-2">
+                        <img src="/assets/unigrowLogo.svg" alt="Company Logo" class="h-16 w-auto cursor-pointer"
+                            onclick="window.location.href='/'">
+                    </div>
 
-    <!-- Desktop Buttons -->
-    <div class="flex space-x-4 items-center justify-center hidden md:flex">
-      <a href="https://app.unigrowtalent.com/" target="_blank">
-        <button class="px-2 py-1 rounded-md text-white"
-          style="background-color:#0784c9; font-size:1rem;">
-          Candidate Login
-        </button>
-      </a>
-      <a href="https://employer.unigrowtalent.com/" target="_blank">
-        <button class="px-2 py-1 rounded-md text-white"
-          style="background-color:#0784c9; font-size:1rem;">
-          Employer Login
-        </button>
-      </a>
-    </div>
+                    <!-- Desktop Menu -->
+                    <div class="flex items-center justify-center">
+                        <ul class="hidden md:flex ml-4 gap-6 font-medium items-center">
+                            <li onclick="window.location.href='/'" class="cursor-pointer active text-blue-600">Home</li>
+                            <li onclick="window.location.href='/aboutUs'"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">AboutUs</li>
+                            <li onclick="window.location.href='/services'"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">Services</li>
+                            <li onclick="window.location.href='/career'"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">Careers</li>
+                            <li onclick="window.location.href='/blogs'"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">Blogs</li>
+                            <li>
+                                <a class="cursor-pointer hover:text-blue-600 transition-colors"
+                                    href="/contactUs">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
 
-    <!-- Mobile Icons -->
-    <div class="md:hidden flex items-center gap-4 z-50">
-      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
-        class="text-black cursor-pointer" height="1em" width="1em">
-        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
-      </svg>
-      <button onclick="toggleMenu()">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="22" width="22">
-          <path
-            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
-          </path>
-        </svg>
-      </button>
-    </div>
+                    <!-- Desktop Buttons -->
+                    <div class="flex space-x-4 items-center justify-center hidden md:flex">
+                        <a href="https://app.unigrowtalent.com/" target="_blank">
+                            <button class="px-2 py-1 rounded-md text-white"
+                                style="background-color:#0784c9; font-size:1rem;">
+                                Candidate Login
+                            </button>
+                        </a>
+                        <a href="https://employer.unigrowtalent.com/" target="_blank">
+                            <button class="px-2 py-1 rounded-md text-white"
+                                style="background-color:#0784c9; font-size:1rem;">
+                                Employer Login
+                            </button>
+                        </a>
+                    </div>
 
-    <!-- Mobile Sidebar -->
-    <div id="mobileMenu"
-      class="fixed top-0 left-0 h-full w-4/5 bg-white shadow-lg z-50 p-6 transform transition-transform duration-300 ease-in-out -translate-x-full">
-      
-      <button onclick="toggleMenu()"
-        class="absolute top-4 right-4 text-3xl font-bold text-gray-700 hover:text-blue-600">
-        &times;
-      </button>
+                    <!-- Mobile Icons -->
+                    <div class="md:hidden flex items-center gap-4 z-50">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
+                            class="text-black cursor-pointer" height="1em" width="1em">
+                            <path
+                                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                            </path>
+                        </svg>
+                        <button onclick="toggleMenu()">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512"
+                                height="22" width="22">
+                                <path
+                                    d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
 
-      <ul class="flex flex-col gap-6 text-lg font-medium mt-10">
-        <li onclick="navigateAndClose('/')" class="cursor-pointer hover:text-blue-600 transition-colors">Home</li>
-        <li onclick="navigateAndClose('/aboutUs')" class="cursor-pointer hover:text-blue-600 transition-colors">AboutUs</li>
-        <li onclick="navigateAndClose('/services')" class="cursor-pointer hover:text-blue-600 transition-colors">Services</li>
-        <li onclick="navigateAndClose('/career')" class="cursor-pointer hover:text-blue-600 transition-colors">Careers</li>
-        <li onclick="navigateAndClose('/blogs')" class="cursor-pointer hover:text-blue-600 transition-colors">Blogs</li>
-        <li>
-          <a onclick="navigateAndClose('/contactUs')" class="cursor-pointer hover:text-blue-600 transition-colors">
-            Contact Us
-          </a>
-        </li>
-      </ul>
+                    <!-- Mobile Sidebar -->
+                    <div id="mobileMenu"
+                        class="fixed top-0 left-0 h-full w-4/5 bg-white shadow-lg z-50 p-6 transform transition-transform duration-300 ease-in-out -translate-x-full">
 
-      <!-- 🔥 Mobile Buttons Added Here -->
-      <div class="flex flex-col gap-4 mt-8">
-        <a href="https://app.unigrowtalent.com/" target="_blank">
-          <button class="w-full py-2 rounded-md text-white"
-            style="background-color:#0784c9; font-size:1rem;">
-            Candidate Login
-          </button>
-        </a>
-        <a href="https://employer.unigrowtalent.com/" target="_blank">
-          <button class="w-full py-2 rounded-md text-white"
-            style="background-color:#0784c9; font-size:1rem;">
-            Employer Login
-          </button>
-        </a>
-      </div>
+                        <button onclick="toggleMenu()"
+                            class="absolute top-4 right-4 text-3xl font-bold text-gray-700 hover:text-blue-600">
+                            &times;
+                        </button>
 
-    </div>
-  </div>
-</div>
-            
+                        <ul class="flex flex-col gap-6 text-lg font-medium mt-10">
+                            <li onclick="navigateAndClose('/')"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">Home</li>
+                            <li onclick="navigateAndClose('/aboutUs')"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">AboutUs</li>
+                            <li onclick="navigateAndClose('/services')"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">Services</li>
+                            <li onclick="navigateAndClose('/career')"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">Careers</li>
+                            <li onclick="navigateAndClose('/blogs')"
+                                class="cursor-pointer hover:text-blue-600 transition-colors">Blogs</li>
+                            <li>
+                                <a onclick="navigateAndClose('/contactUs')"
+                                    class="cursor-pointer hover:text-blue-600 transition-colors">
+                                    Contact Us
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- 🔥 Mobile Buttons Added Here -->
+                        <div class="flex flex-col gap-4 mt-8">
+                            <a href="https://app.unigrowtalent.com/" target="_blank">
+                                <button class="w-full py-2 rounded-md text-white"
+                                    style="background-color:#0784c9; font-size:1rem;">
+                                    Candidate Login
+                                </button>
+                            </a>
+                            <a href="https://employer.unigrowtalent.com/" target="_blank">
+                                <button class="w-full py-2 rounded-md text-white"
+                                    style="background-color:#0784c9; font-size:1rem;">
+                                    Employer Login
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
+    </div>
+
+    <!-- QR CODE -->
+    <div>
+        <div id="qr-floating-box">
+            <span
+                class="bg-white text-black text-sm font-medium px-1  rounded-md shadow-sm items-center justify-center pb-2  text-bold">Scan
+                for app</span>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+    <!-- <div>
+        <div class="fixed bottom-32 right-20  z-50 flex items-end">
+
+        </div>
+    </div> -->
+
+
 
     <div>
         <div data-aos="fade-up" class="aos-init aos-animate">
@@ -209,13 +264,13 @@
                             World-Class Consulting and Best Recruitment Solutions.</h1>
                         <p class="text-lg text-gray-200 mb-6">Empowering your growth through expert strategy and
                             top-tier talent.</p>
-                        
+
                     </div>
                 </div>
             </section>
         </div>
         <div data-aos="fade-up" class="aos-init">
-            
+
         </div>
         <div data-aos="fade-up" class="aos-init">
             <section class="bg-cover bg-center bg-no-repeat py-0 md:py-0"
@@ -243,7 +298,8 @@
                             </div>
                             <div class="fade-up">
                                 <h2 id="professional-advisor" class="text-4xl md:text-5xl font-bold text-purple-600">
-                                    <span>0</span>+</h2>
+                                    <span>0</span>+
+                                </h2>
                                 <p class="text-gray-700 text-sm md:text-base">Professional Advisor</p>
                             </div>
                         </div>
@@ -655,6 +711,13 @@
                 window.location.href = path; // Navigate after animation
             }, 200); // Delay for animation effect
         }
+
+
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://expo.dev/accounts/aditya_jain_dev/projects/unigrowTalentExpo/builds/d7296679-1f1b-4193-920f-d4e14e11065e",
+            width: 150,
+            height: 150,
+        });
     </script>
 
     <script type="module" src="/src/main.jsx?t=1746438716046"></script>
